@@ -48,41 +48,17 @@ const Index = () => {
                         <span className="text-6xl font-light text-foreground/90">
                           {weather.temperature}°C
                         </span>
-                        <span className="text-foreground/60 mt-1">
-                          Feels like {weather.feelsLike}°C
-                        </span>
                       </div>
                       <p className="text-foreground/70 mt-2">{weather.condition}</p>
                     </div>
                     
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                    <div className="flex items-center justify-center">
                       <WeatherMetric 
                         label="Humidity" 
                         value={weather.humidity} 
                         unit="%" 
-                      />
-                      <WeatherMetric 
-                        label="Wind Speed" 
-                        value={weather.windSpeed} 
-                        unit="km/h" 
-                      />
-                      <WeatherMetric 
-                        label="Pressure" 
-                        value={weather.pressure} 
-                        unit="hPa" 
-                      />
-                      <WeatherMetric 
-                        label="Visibility" 
-                        value={weather.visibility} 
-                        unit="km" 
-                      />
-                      <WeatherMetric 
-                        label="UV Index" 
-                        value={weather.uvIndex} 
-                      />
-                      <WeatherMetric 
-                        label="Updated" 
-                        value={new Date(weather.timestamp).toLocaleTimeString()} 
+                        className="text-center"
+                        valueClassName="text-2xl"
                       />
                     </div>
                   </div>

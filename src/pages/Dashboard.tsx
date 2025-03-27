@@ -84,7 +84,7 @@ const Dashboard = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             <WeatherCard 
               className="col-span-1"
               animationDelay="animation-delay-100"
@@ -118,50 +118,15 @@ const Dashboard = () => {
               className="col-span-1"
               animationDelay="animation-delay-200"
             >
-              <h3 className="text-lg font-medium mb-4">Precipitation</h3>
+              <h3 className="text-lg font-medium mb-4">Humidity</h3>
               {isLoading ? (
                 <div className="h-24 flex items-center justify-center">
                   <div className="h-12 w-12 rounded-full bg-gray-100 animate-pulse-slow"></div>
                 </div>
-              ) : data?.precipitation ? (
+              ) : data?.humidity ? (
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-4xl font-light">{data.precipitation.probability}%</span>
-                    <div className="text-right">
-                      <div className="text-sm text-foreground/70">
-                        Intensity: {data.precipitation.intensity} mm/h
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <div className="text-center p-4 text-foreground/70">
-                  No data available
-                </div>
-              )}
-            </WeatherCard>
-            
-            <WeatherCard 
-              className="col-span-1"
-              animationDelay="animation-delay-300"
-            >
-              <h3 className="text-lg font-medium mb-4">Wind</h3>
-              {isLoading ? (
-                <div className="h-24 flex items-center justify-center">
-                  <div className="h-12 w-12 rounded-full bg-gray-100 animate-pulse-slow"></div>
-                </div>
-              ) : data?.wind ? (
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className="text-4xl font-light">{data.wind.speed} km/h</span>
-                    <div className="text-right">
-                      <div className="text-sm text-foreground/70">
-                        Direction: {data.wind.direction}
-                      </div>
-                      <div className="text-sm text-foreground/70">
-                        Gusts: {data.wind.gust} km/h
-                      </div>
-                    </div>
+                    <span className="text-4xl font-light">{data.humidity}%</span>
                   </div>
                 </div>
               ) : (
@@ -193,89 +158,6 @@ const Dashboard = () => {
               <div className="text-xs text-right mt-2 text-foreground/60">
                 Data updates every 3 seconds • Live from Kafka
               </div>
-            </WeatherCard>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <WeatherCard 
-              className="col-span-1"
-              animationDelay="animation-delay-200"
-            >
-              <h3 className="text-lg font-medium mb-4">Sensor Network</h3>
-              {isLoading ? (
-                <div className="h-48 w-full flex items-center justify-center">
-                  <div className="h-24 w-full max-w-xs bg-gray-100 animate-pulse-slow rounded"></div>
-                </div>
-              ) : data?.sensors ? (
-                <div className="space-y-4">
-                  <div className="grid grid-cols-1 gap-4">
-                    {data.sensors.map((sensor: any) => (
-                      <div 
-                        key={sensor.id}
-                        className="flex items-center justify-between border-b border-border pb-3"
-                      >
-                        <div>
-                          <div className="font-medium">{sensor.location}</div>
-                          <div className="text-sm text-foreground/60">{sensor.type}</div>
-                        </div>
-                        <div className="text-xl font-light">
-                          {sensor.value}°C
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ) : (
-                <div className="text-center p-4 text-foreground/70">
-                  No sensor data available
-                </div>
-              )}
-            </WeatherCard>
-            
-            <WeatherCard 
-              className="col-span-1"
-              animationDelay="animation-delay-300"
-            >
-              <h3 className="text-lg font-medium mb-4">Weather Alerts</h3>
-              {isLoading ? (
-                <div className="h-48 w-full flex items-center justify-center">
-                  <div className="h-24 w-full max-w-xs bg-gray-100 animate-pulse-slow rounded"></div>
-                </div>
-              ) : data?.alerts && data.alerts.length > 0 ? (
-                <div className="space-y-4">
-                  {data.alerts.map((alert: any) => (
-                    <div 
-                      key={alert.id}
-                      className={`flex items-start p-4 rounded-lg ${
-                        alert.type === 'warning' 
-                          ? 'bg-orange-50 border-l-4 border-orange-400' 
-                          : 'bg-blue-50 border-l-4 border-blue-400'
-                      }`}
-                    >
-                      <div>
-                        <div className="flex items-center">
-                          <span className={`font-medium ${
-                            alert.type === 'warning' ? 'text-orange-700' : 'text-blue-700'
-                          }`}>
-                            {alert.type === 'warning' ? 'Warning' : 'Information'}
-                          </span>
-                          <span className="text-xs ml-2 text-foreground/60">
-                            {alert.time}
-                          </span>
-                        </div>
-                        <p className="mt-1 text-foreground/80">{alert.message}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <div className="h-48 flex items-center justify-center">
-                  <div className="text-center text-foreground/70">
-                    <p>No active alerts at this time</p>
-                    <p className="text-sm mt-1">Weather conditions are stable</p>
-                  </div>
-                </div>
-              )}
             </WeatherCard>
           </div>
         </div>
