@@ -22,7 +22,7 @@ const Index = () => {
               Weather<span className="text-primary">Scope</span>
             </h1>
             <p className="text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto">
-              Real-time weather monitoring and advanced analytics with precision forecasting.
+              Real-time sensor data monitoring with precision analytics
             </p>
           </div>
           
@@ -39,17 +39,14 @@ const Index = () => {
                 </div>
               ) : weather ? (
                 <div className="p-2">
-                  <div className="flex flex-col md:flex-row items-center justify-between">
+                  <div className="flex flex-col md:flex-row items-center justify-between p-4">
                     <div className="text-center md:text-left mb-6 md:mb-0">
-                      <h2 className="text-xl font-medium text-foreground/80 mb-2">
-                        {weather.location}
-                      </h2>
                       <div className="flex flex-col">
                         <span className="text-6xl font-light text-foreground/90">
                           {weather.temperature}°C
                         </span>
+                        <span className="text-foreground/70 mt-2">Sensor Data</span>
                       </div>
-                      <p className="text-foreground/70 mt-2">{weather.condition}</p>
                     </div>
                     
                     <div className="flex items-center justify-center">
@@ -65,7 +62,7 @@ const Index = () => {
                 </div>
               ) : (
                 <div className="text-center p-8 text-foreground/70">
-                  Unable to load weather data
+                  Unable to load sensor data
                 </div>
               )}
             </WeatherCard>

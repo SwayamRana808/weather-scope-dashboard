@@ -1,7 +1,6 @@
 
 import { PageTransition } from "@/components/layout/PageTransition";
 import { WeatherCard } from "@/components/ui/weather/WeatherCard";
-import { WeatherMetric } from "@/components/ui/weather/WeatherMetric";
 import { AreaChart } from "@/components/ui/charts/AreaChart";
 import { useQuery } from "@tanstack/react-query";
 import { fetchRealtimeData } from "@/lib/api";
@@ -80,7 +79,7 @@ const Dashboard = () => {
               Real-Time Dashboard
             </h1>
             <p className="text-foreground/70">
-              Live weather data stream from our network of sensors
+              Live sensor data stream from Kafka
             </p>
           </div>
           

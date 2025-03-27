@@ -7,10 +7,8 @@ export const fetchCurrentWeather = () => {
   return new Promise(resolve => {
     setTimeout(() => {
       resolve({
-        location: "San Francisco",
         temperature: 22,
         humidity: 65,
-        condition: "Partly Cloudy",
         timestamp: new Date().toISOString()
       });
     }, 500);
@@ -29,10 +27,10 @@ export const fetchRealtimeData = () => {
         },
         humidity: 65,
         sensors: [
-          { id: "sensor-1", value: 22.5, type: "temperature", location: "Downtown" },
-          { id: "sensor-2", value: 23.1, type: "temperature", location: "Airport" },
-          { id: "sensor-3", value: 21.8, type: "temperature", location: "Bay Area" },
-          { id: "sensor-4", value: 21.2, type: "temperature", location: "Golden Gate" }
+          { id: "sensor-1", value: 22.5, type: "temperature" },
+          { id: "sensor-2", value: 23.1, type: "temperature" },
+          { id: "sensor-3", value: 21.8, type: "temperature" },
+          { id: "sensor-4", value: 21.2, type: "temperature" }
         ]
       });
     }, 800);
@@ -45,13 +43,13 @@ export const fetchHistoricalData = () => {
     setTimeout(() => {
       resolve({
         daily: [
-          { date: "Mon", temperature: 19, humidity: 62, summary: "Clear" },
-          { date: "Tue", temperature: 21, humidity: 60, summary: "Clear" },
-          { date: "Wed", temperature: 22, humidity: 65, summary: "Partly Cloudy" },
-          { date: "Thu", temperature: 20, humidity: 70, summary: "Rain" },
-          { date: "Fri", temperature: 18, humidity: 75, summary: "Heavy Rain" },
-          { date: "Sat", temperature: 19, humidity: 68, summary: "Light Rain" },
-          { date: "Sun", temperature: 22, humidity: 62, summary: "Clear" }
+          { date: "Mon", temperature: 19, humidity: 62 },
+          { date: "Tue", temperature: 21, humidity: 60 },
+          { date: "Wed", temperature: 22, humidity: 65 },
+          { date: "Thu", temperature: 20, humidity: 70 },
+          { date: "Fri", temperature: 18, humidity: 75 },
+          { date: "Sat", temperature: 19, humidity: 68 },
+          { date: "Sun", temperature: 22, humidity: 62 }
         ],
         monthly: [
           { month: "Jan", avgTemp: 14, avgHumidity: 72 },
@@ -72,15 +70,14 @@ export const fetchHistoricalData = () => {
             afternoon: 60,
             evening: 65,
             night: 80
-          },
-          summary: "Clear throughout the day"
+          }
         },
         forecast: [
-          { date: "Tomorrow", high: 23, low: 16, humidity: 60, summary: "Mostly Clear" },
-          { date: "Day 2", high: 24, low: 17, humidity: 58, summary: "Sunny" },
-          { date: "Day 3", high: 21, low: 15, humidity: 65, summary: "Chance of Rain" },
-          { date: "Day 4", high: 19, low: 14, humidity: 75, summary: "Rain" },
-          { date: "Day 5", high: 20, low: 15, humidity: 68, summary: "Partly Cloudy" }
+          { date: "Tomorrow", high: 23, low: 16, humidity: 60 },
+          { date: "Day 2", high: 24, low: 17, humidity: 58 },
+          { date: "Day 3", high: 21, low: 15, humidity: 65 },
+          { date: "Day 4", high: 19, low: 14, humidity: 75 },
+          { date: "Day 5", high: 20, low: 15, humidity: 68 }
         ]
       });
     }, 1000);
