@@ -7,7 +7,7 @@ export const fetchCurrentWeather = () => {
   return new Promise(resolve => {
     setTimeout(() => {
       resolve({
-        temperature: 22,
+        temperature: 20,
         humidity: 65,
         timestamp: new Date().toISOString()
       });
